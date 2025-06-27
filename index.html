@@ -8,13 +8,19 @@
     <style>
         /* CSS para o layout da página */
         body {
-            background-color: #f8f8f8;
+            background-color: #f0f0f0; /* Cor de fundo mais suave */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            flex-direction: column;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
         }
 
         .container img {
@@ -27,31 +33,84 @@
 
         /* Estilos para o jogo */
         .jogo {
-            text-align: center;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #4c78af;
+            margin-bottom: 15px;
         }
 
         input,
         button {
-            padding: 10px;
-            margin-top: 10px;
-            width: 80%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px;
+            margin-top: 15px;
+            width: 90%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
+        /* Estilos para os campos de entrada */
+        input {
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4c78af;
+            background-color: #e0f0ff;
+        }
+
+        /* Estilos para o botão */
         button {
             background-color: #4c78af;
             color: white;
             cursor: pointer;
+            border: none;
         }
 
         button:hover {
-            background-color: #4c78af;
+            background-color: #3b64a1;
+        }
+
+        button:active {
+            background-color: #2a4d7a;
+        }
+
+        /* Estilo para o resultado */
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #resultado strong {
+            color: #4c78af;
+        }
+
+        /* Responsividade */
+        @media (max-width: 500px) {
+            .jogo {
+                width: 90%;
+                padding: 20px;
+            }
+
+            input,
+            button {
+                width: 100%;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
