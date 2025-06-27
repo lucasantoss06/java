@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Média</title>
+    <style>
+        /* CSS para o layout da página */
+        body {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .container img {
+            width: 100px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para o jogo */
+        .jogo {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4c78af;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4c78af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Imagem centralizada -->
+        <img src="imagem.png" alt="Imagem Exemplo">
+
+        <!-- Jogo da média -->
+        <div class="jogo">
+            <h1>Jogo da Média</h1>
+            <p>Digite a quantidade de números que você deseja calcular a média:</p>
+            <input type="number" id="quantidade" placeholder="Quantidade de números" min="1">
+            <button onclick="iniciarJogo()">Iniciar Jogo</button>
+
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Função para iniciar o jogo
+        function iniciarJogo() {
+            let quantidade = parseInt(document.getElementById("quantidade").value);
+
+            // Verifica se a quantidade é válida
+            if (isNaN(quantidade) || quantidade < 1) {
+                alert("Por favor, insira um número válido para a quantidade.");
+                return;
+            }
+
+            let soma = 0;
+            let contador = 0;
+
+            // Loop para pedir os números
+            for (let i = 1; i <= quantidade; i++) {
+                let numero = parseFloat(prompt(`Digite o ${i}º número:`));
+
+                // Verifica se o número digitado é válido
+                if (isNaN(numero)) {
+                    alert("Por favor, insira um número válido.");
+                    i--; // Se o número for inválido, repete a tentativa
+                } else {
+                    soma += numero;
+                    contador++;
+                }
+            }
+
+            // Calcula a média
+            let media = soma / contador;
+
+            // Exibe o resultado na tela
+            let resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `A média dos ${quantidade} números digitados é: <strong>${media}</strong>`;
+        }
+    </script>
+
+</body>
+
+</html>
